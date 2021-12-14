@@ -1,8 +1,8 @@
 <?php
 namespace GuzzleHttp;
 
-use GuzzleHttp\Promise\PromiseInterface;
 use GuzzleHttp\Exception\GuzzleException;
+use GuzzleHttp\Promise\PromiseInterface;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\UriInterface;
@@ -12,7 +12,10 @@ use Psr\Http\Message\UriInterface;
  */
 interface ClientInterface
 {
-    const VERSION = '6.1.0';
+    /**
+     * @deprecated Will be removed in Guzzle 7.0.0
+     */
+    const VERSION = '6.5.5';
 
     /**
      * Send an HTTP request.
@@ -44,7 +47,7 @@ interface ClientInterface
      * relative path to append to the base path of the client. The URL can
      * contain the query string as well.
      *
-     * @param string              $method  HTTP method
+     * @param string              $method  HTTP method.
      * @param string|UriInterface $uri     URI object or string.
      * @param array               $options Request options to apply.
      *
