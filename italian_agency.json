@@ -1,0 +1,72 @@
+{
+    "pager": {
+      "current_page": 0,
+      "total_items": "1",
+      "total_pages": 1,
+      "items_per_page": 10
+    },
+    "data": [
+      {
+        "id": "162",
+        "changed": "2021-10-25T22:17:43",
+        "link": "https://test.itc-benchmarking.edw.ro/benchmarking/institutions/162",
+        "title": "Italian Trade Agency",
+        "acronym": "ITA",
+        "bso_types": [
+          {
+            "id": "271",
+            "name": "Trade promotion organization (TPO)"
+          }
+        ],
+        "country": {
+          "id": "114",
+          "iso2": "IT",
+          "iso3": "ITA",
+          "name": "Italy"
+        },
+        "state": null,
+        "city": "Rome",
+        "street_address": "Via Liszt 21",
+        "street_number": null,
+        "zip_code": "00144",
+        "po_box": null,
+        "telephone": "+390659921",
+        "fax": null,
+        "email": "pianificazione.controllo@ice.it",
+        "website": null,
+        "preferred_contact_language": null,
+        "url_twitter": null,
+        "url_facebook": null,
+        "url_instagram": null,
+        "url_other": null,
+        "ceo_salutation": "Mr.",
+        "ceo_family_name": "Luongo",
+        "ceo_middle_name": null,
+        "ceo_name": "Roberto",
+        "membership_based": null,
+        "active_members_no": null,
+        "organization_mandate": [
+          "Investment Promotion",
+          "Import Development",
+          "Export Promotion",
+          "Export Development"
+        ],
+        "ownership_statute": null,
+        "establishment_year": "1926",
+        "geographical_coverage": null,
+        "hr_total_staff": null,
+        "hr_senior_management": null,
+        "hr_administrative": null,
+        "hr_managers": null,
+        "foreign_offices": null,
+        "country_offices": null,
+        "clients_no": null,
+        "clients_women": null,
+        "budget_total": null,
+        "budget_regular": null,
+        "budget_services": null,
+        "budget_membership_fees": null,
+        "full_address": "Italy, Rome, Via Liszt 21, 00144"
+      }
+    ]
+  }
