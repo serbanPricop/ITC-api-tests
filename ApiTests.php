@@ -59,18 +59,14 @@ class ApiTests extends TestCase{
 
         $total_pages = $results['pager']['total_pages'];
 
-        $all_pages_data = array();
+        $all_agencies = [];
         for($i=0; $i < $total_pages; $i++)
         { 
             $res = $this->client->get('/api/v1/institutions?page='.$i);
             $data = json_decode($res->getBody(),true);
-            array_push($all_pages_data,$data);
-
+            $all_agencies = array_merge($all_agencies, $data['data']);
         }
 
-        $agencies_data = $this->get_all_pages_data($all_pages_data);
-
-        $all_agencies = $this->get_all_agencies($agencies_data);
         $italian_agency = array();
 
         foreach($all_agencies as $agency)
@@ -175,7 +171,7 @@ class ApiTests extends TestCase{
     }
 
     public function get_all_agencies($all_agencies_data)
-    {   
+    {
         $all_agencies = array();
         for($i = 0; $i < sizeof($all_agencies_data); $i++)
         {
