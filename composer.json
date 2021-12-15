@@ -3,7 +3,6 @@
         "phpunit/phpunit": "9"
     },
     "require": {
-        "guzzlehttp/guzzle": "^6.3.0",
-        "curl/curl": "^2.3"
+        "guzzlehttp/guzzle": "^6.3.0"
     }
 }

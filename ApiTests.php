@@ -65,33 +65,63 @@ class ApiTests extends TestCase{
 
         $all_pages_data = array();
         for($i=0; $i < $total_pages; $i++)
-        {
+        { 
             $res = $this->client->get('/api/v1/institutions?page='.$i);
             $data = json_decode($res->getBody(),true);
             array_push($all_pages_data,$data);
 
         }
-        // $data['data'][page place]['title']
-        foreach($all_pages_data as $data)
-        {   
-            // print_r($items_per_page = sizeof($data[0]));
-            
+
+        $agencies_data = $this->get_all_pages_data($all_pages_data);
+
+        $all_agencies = $this->get_all_agencies($agencies_data);
+        $italian_agency = array();
+        foreach($all_agencies as $agency)
+        {
+            if($agency['title'] == 'Italian Trade Agency')
+            {
+                $italian_agency = $agency;
+            }
         }
 
-        // $trade_agency = array();
-        // foreach($results as $result)
-        // {
-        //     if($result['title'] == 'Proeksport')
-        //     {
-        //         $trade_agency = $result;
-        //     }
-        // }
+        $agency_changed = explode("T",$italian_agency['changed'])[0];
+        $agency_country_id = $italian_agency['country']['id'];
+        $agency_country_iso2 = $italian_agency['country']['iso2'];
+        $agency_country_iso3 = $italian_agency['country']['iso3'];
+        $agency_country_bso_type = $italian_agency['bso_types'][0]['id'];
 
-        // print_r($trade_agency);
-
-
-        
+        $italian_agency_params = array($italian_agency['id'],$agency_changed,$agency_country_id,$agency_country_iso2,$agency_country_iso3,$agency_country_bso_type);
+        $response_changed = $this->client->get('/api/v1/institutions?changed='.$agency_changed);
+        $this->assertEquals(200,$response_changed->getStatusCode());
+        $data_changed = json_decode($response->getBody(),true);
+        $result_changed = $data_changed;
+        print_r($result_changed);
     }
 
+    public function get_all_pages_data($all_pages){
 
+        $all_agencies_data = array();
+
+        for($i = 0;$i < sizeof($all_pages);$i++)
+        {
+            array_push($all_agencies_data, $all_pages[$i]['data']);
+        }
+
+        return $all_agencies_data;
+    }
+
+    public function get_all_agencies($all_agencies_data)
+    {   
+        $all_agencies = array();
+        for($i = 0; $i < sizeof($all_agencies_data); $i++)
+        {
+            foreach($all_agencies_data[$i] as $agency)
+            {
+                array_push($all_agencies,$agency);
+            }
+
+        }
+
+        return $all_agencies;
+    }
 }
